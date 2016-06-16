@@ -4,7 +4,7 @@ Ext.define('CustomApp', {
 
 	launch: function() {
 		Ext.create('Rally.data.wsapi.TreeStoreBuilder').build({
-			models: ['defect', 'userstory'],
+			models: ['defect', 'userstory', 'defectsuite'],
 			autoLoad: true,
 			enableHierarchy: true,
 			sorters:[
@@ -86,6 +86,12 @@ Ext.define('CustomApp', {
 						property: 'State',
 						operator: '!=',
 						value: 'Closed'
+					}
+				],
+				sorters:[
+					{
+						property: 'Rank',
+						direction: 'ASC'
 					}
 				]
 			},
