@@ -7,15 +7,22 @@ Ext.define('CustomApp', {
 			models: ['defect', 'userstory'],
 			autoLoad: true,
 			enableHierarchy: true,
-			sorters:[{
-				property:'Rank',
-				direction: 'ASC'
-			}],
+			sorters:[
+				{
+					property: 'Rank',
+					direction: 'ASC'
+				}
+			],
 			filters:[
 				{
 					property: 'ScheduleState',
 					operator: '!=',
 					value: 'Released'
+				},
+				{
+					property: 'State',
+					operator: '!=',
+					value: 'Closed'
 				}
 			]
 		}).then({
@@ -64,9 +71,22 @@ Ext.define('CustomApp', {
 				columnCfgs: [
 					'Name',
 					'PlanEstimate',
-					'KanbanState',
 					'Release',
 					'Iteration'
+				]
+			},
+			storeConfig: {
+				filters:[
+					{
+						property: 'ScheduleState',
+						operator: '!=',
+						value: 'Released'
+					},
+					{
+						property: 'State',
+						operator: '!=',
+						value: 'Closed'
+					}
 				]
 			},
 			height: this.getHeight()
