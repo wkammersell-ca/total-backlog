@@ -32,7 +32,7 @@ Ext.define('CustomApp', {
 	},
 
 	_onStoreBuilt: function(store) {
-		var modelNames = ['defect', 'userstory'],
+		var modelNames = ['defect', 'userstory', 'defectsuite'],
 		context = this.getContext();
 		this.add({
 			xtype: 'rallygridboard',
